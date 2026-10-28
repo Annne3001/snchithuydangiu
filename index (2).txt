@@ -1,0 +1,3376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gửi chị iu 💙</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eaf7ff,
+            #cfeaff,
+            #b9dcff
+        );
+}
+
+
+/* =====================================================
+   TRANG NHẬP MẬT KHẨU
+===================================================== */
+
+.password-page {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.card {
+    width: min(900px, 95vw);
+    height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 40px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #62b8ff,
+            #368fe8
+        );
+
+    box-shadow:
+        0 25px 60px
+        rgba(30, 110, 190, .30);
+
+    animation:
+        cardAppear .8s ease;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* =====================================================
+   ẢNH BÊN TRÁI
+===================================================== */
+
+.photo-box {
+    width: 48%;
+    height: 390px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.20);
+}
+
+.photo-box img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   MẬT KHẨU
+===================================================== */
+
+.password-box {
+    flex: 1;
+
+    text-align: center;
+
+    color: white;
+}
+
+.heart-icon {
+
+    width: 42px;
+    height: 42px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.25);
+
+    font-size: 21px;
+}
+
+.password-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   DẤU CHẤM
+===================================================== */
+
+.dots {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    margin-bottom: 20px;
+}
+
+.dot {
+
+    width: 14px;
+    height: 14px;
+
+    border: 2px solid white;
+
+    border-radius: 50%;
+
+    transition: .2s;
+}
+
+.dot.active {
+
+    background: white;
+
+    transform: scale(1.05);
+}
+
+
+/* =====================================================
+   BÀN PHÍM
+===================================================== */
+
+.keypad {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 58px);
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+.key {
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.65);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        background .2s;
+}
+
+.key:hover {
+
+    background:
+        rgba(255,255,255,.25);
+
+    transform:
+        scale(1.08);
+}
+
+.key:active {
+
+    transform:
+        scale(.90);
+}
+
+
+/* =====================================================
+   TRANG PHONG THƯ
+===================================================== */
+
+.letter-page {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,255,255,.9),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(255,255,255,.8),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #e4f5ff,
+            #c5e6ff,
+            #d9f0ff
+        );
+}
+
+.letter-page.show {
+
+    display: flex;
+}
+
+
+/* =====================================================
+   PHONG THƯ
+===================================================== */
+
+.envelope {
+
+    position: relative;
+
+    width: 440px;
+    height: 290px;
+
+    cursor: pointer;
+
+    filter:
+        drop-shadow(
+            0 25px 25px
+            rgba(20,90,170,.28)
+        );
+
+    animation:
+        envelopeAppear
+        1s ease;
+}
+
+@keyframes envelopeAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.55)
+            translateY(50px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   THÂN PHONG THƯ XANH
+===================================================== */
+
+.envelope-body {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 225px;
+
+    overflow: hidden;
+
+    border-radius:
+        0 0 10px 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976d2,
+            #42a5f5
+        );
+
+    box-shadow:
+        inset 0 -5px 15px
+        rgba(0,0,0,.08);
+}
+
+.envelope-body::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    border-style: solid;
+
+    border-width:
+        0 220px 165px 0;
+
+    border-color:
+        transparent
+        #1565c0
+        transparent
+        transparent;
+}
+
+.envelope-body::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    border-style: solid;
+
+    border-width:
+        165px 0 0 220px;
+
+    border-color:
+        transparent
+        transparent
+        transparent
+        #64b5f6;
+}
+
+
+/* =====================================================
+   NẮP PHONG THƯ
+===================================================== */
+
+.envelope-flap {
+
+    position: absolute;
+
+    z-index: 5;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        220px solid transparent;
+
+    border-right:
+        220px solid transparent;
+
+    border-top:
+        155px solid #42a5f5;
+
+    transform-origin:
+        top center;
+
+    transition:
+        transform 1s ease;
+}
+
+.envelope.open .envelope-flap {
+
+    transform:
+        rotateX(180deg);
+}
+
+
+/* =====================================================
+   TIM PHONG THƯ
+===================================================== */
+
+.envelope-heart {
+
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    top: 120px;
+
+    transform:
+        translateX(-50%);
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #1976d2;
+
+    color: white;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,70,150,.35);
+
+    transition:
+        opacity .4s ease;
+}
+
+.envelope.open .envelope-heart {
+
+    opacity: 0;
+}
+
+
+/* =====================================================
+   TRANG GIẤY
+===================================================== */
+
+.letter-paper {
+
+    position: absolute;
+
+    z-index: 50;
+
+    width: 430px;
+    min-height: 500px;
+
+    padding:
+        45px 40px;
+
+    border-radius: 6px;
+
+    background: #fff;
+
+    box-shadow:
+        0 20px 60px
+        rgba(30,80,130,.35);
+
+    opacity: 0;
+
+    transform:
+        translateY(80px)
+        scale(.85);
+
+    pointer-events: none;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.letter-paper.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(-35px)
+        scale(.92);
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   ĐƯỜNG KẺ GIẤY
+===================================================== */
+
+.letter-paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 30px;
+    right: 30px;
+
+    top: 20px;
+    bottom: 20px;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+
+            transparent 0px,
+            transparent 31px,
+
+            rgba(60,150,220,.15)
+            32px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   NỘI DUNG TÂM THƯ
+===================================================== */
+
+.paper-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #333;
+
+    line-height: 1.9;
+
+    font-family:
+        "Segoe Print",
+        "Comic Sans MS",
+        cursive;
+}
+
+.paper-content h1 {
+
+    text-align: center;
+
+    color:
+        #1976d2;
+
+    font-size:
+        28px;
+
+    margin-bottom:
+        25px;
+}
+
+.paper-content p {
+
+    font-size:
+        16px;
+
+    margin-bottom:
+        18px;
+}
+
+
+/* =====================================================
+   CON TRỎ VIẾT
+===================================================== */
+
+.typing-cursor {
+
+    display: inline-block;
+
+    width: 2px;
+
+    height: 20px;
+
+    margin-left: 3px;
+
+    vertical-align: middle;
+
+    background:
+        #1976d2;
+
+    animation:
+        blink .7s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   NÚT MỞ QUÀ
+===================================================== */
+
+.gift-button {
+
+    position: absolute;
+
+    z-index: 200;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        14px 28px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1976d2,
+            #42a5f5
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px
+        rgba(20,100,190,.35);
+
+    transition:
+        .25s;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.gift-button.show {
+
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+.gift-button:hover {
+
+    transform:
+        translateX(-50%)
+        scale(1.08);
+}
+
+.gift-button:active {
+
+    transform:
+        translateX(-50%)
+        scale(.95);
+}
+
+
+/* =====================================================
+   MÀN HÌNH SINH NHẬT
+===================================================== */
+
+.birthday-screen {
+
+    position: fixed;
+
+    z-index: 500;
+
+    inset: 0;
+
+    display: none;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #071d42,
+            #020817 65%,
+            #000
+        );
+}
+
+.birthday-screen.active {
+
+    display: block;
+}
+
+
+/* =====================================================
+   CHỮ HAPPY BIRTHDAY
+===================================================== */
+
+.happy-text {
+
+    position: absolute;
+
+    z-index: 100;
+
+    top: 34%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.2);
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(42px, 9vw, 110px);
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        5px;
+
+    color:
+        white;
+
+    text-shadow:
+
+        0 0 8px #fff,
+
+        0 0 20px #00c8ff,
+
+        0 0 40px #ff00d4,
+
+        0 0 70px #ffe600;
+
+    opacity: 0;
+
+    transition:
+        1.2s ease;
+}
+
+.birthday-screen.active .happy-text {
+
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    animation:
+        happyGlow
+        2s infinite alternate;
+}
+
+@keyframes happyGlow {
+
+    from {
+
+        text-shadow:
+
+            0 0 8px #fff,
+
+            0 0 20px #00c8ff,
+
+            0 0 40px #ff00d4;
+    }
+
+    to {
+
+        text-shadow:
+
+            0 0 15px #fff,
+
+            0 0 35px #ffe600,
+
+            0 0 60px #00eaff,
+
+            0 0 90px #ff2bc2;
+    }
+}
+
+
+/* =====================================================
+   CANVAS PHÁO HOA
+===================================================== */
+
+#fireworks {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 20;
+}
+
+
+/* =====================================================
+   BÁNH KEM
+===================================================== */
+
+.cake {
+
+    position: absolute;
+
+    z-index: 80;
+
+    left: 50%;
+
+    bottom: -500px;
+
+    width: 300px;
+
+    height: 330px;
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        bottom 2s cubic-bezier(.2,.8,.2,1);
+}
+
+.birthday-screen.cake-show .cake {
+
+    bottom: 45px;
+}
+
+
+/* =====================================================
+   NẾN
+===================================================== */
+
+.candles {
+
+    position: absolute;
+
+    z-index: 20;
+
+    top: -50px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    gap: 18px;
+}
+
+.candle {
+
+    position: relative;
+
+    width: 12px;
+    height: 48px;
+
+    border-radius: 4px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ffffff 0px,
+            #ffffff 6px,
+            #65b9ff 6px,
+            #65b9ff 12px
+        );
+
+    box-shadow:
+        0 2px 6px
+        rgba(0,0,0,.3);
+}
+
+
+/* LỬA */
+
+.flame {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: -24px;
+
+    width: 14px;
+    height: 22px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        50% 50% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 70%,
+            #fff 0 15%,
+            #ffe600 30%,
+            #ff8c00 65%,
+            transparent 70%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 8px #ffb300
+        );
+
+    animation:
+        flameMove
+        .5s infinite alternate;
+}
+
+@keyframes flameMove {
+
+    from {
+
+        transform:
+            translateX(-50%)
+            scale(.85)
+            rotate(-3deg);
+    }
+
+    to {
+
+        transform:
+            translateX(-50%)
+            scale(1.1)
+            rotate(4deg);
+    }
+}
+
+
+/* =====================================================
+   TẦNG BÁNH
+===================================================== */
+
+.cake-tier {
+
+    position: absolute;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        18px 18px 10px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #1266b1,
+            #42a5f5 45%,
+            #1976d2
+        );
+
+    box-shadow:
+
+        inset 0 7px 10px
+        rgba(255,255,255,.35),
+
+        inset 0 -12px 18px
+        rgba(0,0,0,.18),
+
+        0 10px 15px
+        rgba(0,0,0,.3);
+}
+
+
+/* TẦNG 1 */
+
+.tier-bottom {
+
+    bottom: 0;
+
+    width: 290px;
+    height: 90px;
+}
+
+
+/* TẦNG 2 */
+
+.tier-middle {
+
+    bottom: 75px;
+
+    width: 240px;
+    height: 80px;
+}
+
+
+/* TẦNG 3 */
+
+.tier-top {
+
+    bottom: 142px;
+
+    width: 190px;
+    height: 70px;
+}
+
+
+/* =====================================================
+   KEM TRẮNG TRÊN BÁNH
+===================================================== */
+
+.icing {
+
+    position: absolute;
+
+    left: 0;
+
+    top: -12px;
+
+    width: 100%;
+
+    height: 24px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #ffffff,
+            #dff4ff
+        );
+
+    box-shadow:
+        0 3px 5px
+        rgba(0,0,0,.18);
+}
+
+
+/* =====================================================
+   HOA HỒNG XANH
+===================================================== */
+
+.blue-rose {
+
+    position: absolute;
+
+    z-index: 15;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #9ee7ff 0%,
+            #2196f3 35%,
+            #075bb5 70%,
+            #034080 100%
+        );
+
+    box-shadow:
+        0 4px 8px
+        rgba(0,0,0,.25);
+
+    animation:
+        roseFloat
+        2s ease-in-out
+        infinite alternate;
+}
+
+.blue-rose::before,
+.blue-rose::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #70d5ff,
+            #1976d2
+        );
+}
+
+.blue-rose::before {
+
+    left: -8px;
+    top: 8px;
+}
+
+.blue-rose::after {
+
+    right: -8px;
+    top: 8px;
+}
+
+.rose1 {
+
+    left: 42px;
+    bottom: 82px;
+}
+
+.rose2 {
+
+    right: 38px;
+    bottom: 88px;
+
+    transform:
+        scale(.85);
+}
+
+.rose3 {
+
+    left: 50%;
+
+    bottom: 152px;
+
+    transform:
+        translateX(-50%)
+        scale(.85);
+}
+
+@keyframes roseFloat {
+
+    from {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    to {
+
+        transform:
+            translateY(-5px)
+            rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   CHỮ TRÊN BÁNH
+===================================================== */
+
+.cake-message {
+
+    position: absolute;
+
+    z-index: 30;
+
+    left: 50%;
+
+    bottom: 115px;
+
+    transform:
+        translateX(-50%);
+
+    width: 210px;
+
+    text-align: center;
+
+    color: white;
+
+    font-family:
+        "Segoe Print",
+        cursive;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    line-height: 1.2;
+
+    text-shadow:
+        0 2px 4px
+        rgba(0,0,0,.4);
+}
+
+
+/* =====================================================
+   BƯỚM
+===================================================== */
+
+.butterfly {
+
+    position: fixed;
+
+    z-index: 120;
+
+    font-size:
+        clamp(24px, 4vw, 42px);
+
+    pointer-events: none;
+
+    animation:
+        butterflyFly
+        8s linear
+        forwards;
+}
+
+@keyframes butterflyFly {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -20px,
+                110vh
+            )
+            rotate(-15deg)
+            scale(.6);
+    }
+
+    10% {
+
+        opacity: 1;
+    }
+
+    25% {
+
+        transform:
+            translate(
+                80px,
+                80vh
+            )
+            rotate(15deg)
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            translate(
+                -100px,
+                50vh
+            )
+            rotate(-10deg)
+            scale(1.15);
+    }
+
+    75% {
+
+        transform:
+            translate(
+                120px,
+                25vh
+            )
+            rotate(15deg)
+            scale(.9);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -50px,
+                -100px
+            )
+            rotate(-20deg)
+            scale(.7);
+    }
+}
+
+
+/* =====================================================
+   DÂY ẢNH KỶ NIỆM
+===================================================== */
+
+.photo-line {
+
+    position: absolute;
+
+    z-index: 150;
+
+    top: 30px;
+
+    left: 50%;
+
+    width: 90%;
+
+    max-width: 1100px;
+
+    height: 160px;
+
+    transform:
+        translateX(-50%);
+
+    opacity: 0;
+
+    transition:
+        1.5s ease;
+}
+
+.birthday-screen.active .photo-line {
+
+    opacity: 1;
+}
+
+
+/* DÂY */
+
+.rope {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 3px;
+
+    background:
+        #d9c29c;
+
+    transform:
+        rotate(-1deg);
+
+    box-shadow:
+        0 2px 3px
+        rgba(0,0,0,.2);
+}
+
+
+/* ẢNH */
+
+.memory-photo {
+
+    position: absolute;
+
+    top: 27px;
+
+    width: 100px;
+
+    height: 115px;
+
+    padding: 5px;
+
+    background: white;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.35);
+
+    transform:
+        rotate(var(--rotate));
+
+    transition:
+        .3s;
+}
+
+.memory-photo:hover {
+
+    transform:
+        rotate(0deg)
+        scale(1.1);
+
+    z-index: 20;
+}
+
+
+/* KẸP */
+
+.memory-photo::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -13px;
+
+    left: 50%;
+
+    width: 12px;
+
+    height: 25px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius:
+        3px;
+
+    background:
+        #b0b0b0;
+
+    box-shadow:
+        0 2px 3px
+        rgba(0,0,0,.3);
+}
+
+.memory-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* VỊ TRÍ ẢNH */
+
+.photo1 {
+    left: 5%;
+    --rotate: -7deg;
+}
+
+.photo2 {
+    left: 22%;
+    --rotate: 5deg;
+}
+
+.photo3 {
+    left: 39%;
+    --rotate: -4deg;
+}
+
+.photo4 {
+    left: 56%;
+    --rotate: 7deg;
+}
+
+.photo5 {
+    left: 73%;
+    --rotate: -6deg;
+}
+
+
+/* =====================================================
+   CHỮ NHỎ
+===================================================== */
+
+.small-wish {
+
+    position: absolute;
+
+    z-index: 100;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,255,255,.85);
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px) {
+
+    .card {
+
+        width: 95vw;
+        height: auto;
+
+        padding: 20px;
+
+        flex-direction:
+            column;
+
+        gap: 25px;
+    }
+
+    .photo-box {
+
+        width: 100%;
+        height: 220px;
+    }
+
+    .keypad {
+        gap: 8px;
+    }
+
+    .key {
+
+        width: 52px;
+        height: 52px;
+    }
+
+    .envelope {
+
+        width: 330px;
+        height: 220px;
+    }
+
+    .envelope-body {
+
+        height: 170px;
+    }
+
+    .envelope-flap {
+
+        border-left-width:
+            165px;
+
+        border-right-width:
+            165px;
+
+        border-top-width:
+            115px;
+    }
+
+    .envelope-body::before {
+
+        border-width:
+            0 165px 125px 0;
+    }
+
+    .envelope-body::after {
+
+        border-width:
+            125px 0 0 165px;
+    }
+
+    .envelope-heart {
+
+        top: 85px;
+    }
+
+    .letter-paper {
+
+        width: 90vw;
+
+        min-height: 440px;
+
+        padding:
+            30px 25px;
+    }
+
+    .letter-paper.show {
+
+        transform:
+            translateY(-35px)
+            scale(.88);
+    }
+
+    .paper-content h1 {
+
+        font-size: 24px;
+    }
+
+    .paper-content p {
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+    .gift-button {
+
+        bottom: 15px;
+
+        font-size: 13px;
+
+        padding:
+            12px 20px;
+    }
+
+    .photo-line {
+
+        width: 96%;
+
+        top: 15px;
+
+        height: 115px;
+    }
+
+    .memory-photo {
+
+        width: 55px;
+        height: 75px;
+
+        padding: 3px;
+    }
+
+    .memory-photo::before {
+
+        top: -8px;
+
+        width: 8px;
+        height: 15px;
+    }
+
+    .photo5 {
+        display: none;
+    }
+
+    .photo4 {
+        left: 72%;
+    }
+
+    .photo3 {
+        left: 48%;
+    }
+
+    .photo2 {
+        left: 25%;
+    }
+
+    .photo1 {
+        left: 2%;
+    }
+
+    .cake {
+
+        transform:
+            translateX(-50%)
+            scale(.75);
+    }
+
+    .birthday-screen.cake-show .cake {
+
+        bottom: 10px;
+    }
+
+    .cake-message {
+
+        font-size: 16px;
+    }
+
+}
+
+
+/* =====================================================
+   ẨN PHẦN QUÀ BAN ĐẦU
+===================================================== */
+
+.birthday-screen {
+
+    opacity: 0;
+
+    transition:
+        opacity .8s ease;
+}
+
+.birthday-screen.active {
+
+    opacity: 1;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MÀN HÌNH MẬT KHẨU
+===================================================== -->
+
+<section
+    class="password-page"
+    id="passwordPage">
+
+    <div class="card">
+
+
+        <!-- ẢNH -->
+
+        <div class="photo-box">
+
+            <!--
+                ĐỔI ANH.JPG THÀNH ẢNH CỦA BẠN
+            -->
+
+            <img
+                src="anh.jpg"
+                alt="Ảnh kỷ niệm">
+
+        </div>
+
+
+        <!-- MẬT KHẨU -->
+
+        <div class="password-box">
+
+            <div class="heart-icon">
+                ♥
+            </div>
+
+            <div class="password-title">
+                Nhập mật khẩu
+            </div>
+
+
+            <div class="dots">
+
+                <span
+                    class="dot"
+                    id="dot1">
+                </span>
+
+                <span
+                    class="dot"
+                    id="dot2">
+                </span>
+
+                <span
+                    class="dot"
+                    id="dot3">
+                </span>
+
+                <span
+                    class="dot"
+                    id="dot4">
+                </span>
+
+            </div>
+
+
+            <div class="keypad">
+
+                <button
+                    class="key"
+                    onclick="press(1)">
+                    1
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(2)">
+                    2
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(3)">
+                    3
+                </button>
+
+
+                <button
+                    class="key"
+                    onclick="press(4)">
+                    4
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(5)">
+                    5
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(6)">
+                    6
+                </button>
+
+
+                <button
+                    class="key"
+                    onclick="press(7)">
+                    7
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(8)">
+                    8
+                </button>
+
+                <button
+                    class="key"
+                    onclick="press(9)">
+                    9
+                </button>
+
+
+                <button class="key"></button>
+
+                <button
+                    class="key"
+                    onclick="press(0)">
+                    0
+                </button>
+
+                <button
+                    class="key"
+                    onclick="removeNumber()">
+                    ⌫
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRANG PHONG THƯ
+===================================================== -->
+
+<section
+    class="letter-page"
+    id="letterPage">
+
+
+    <!-- PHONG THƯ -->
+
+    <div
+        class="envelope"
+        id="envelope"
+        onclick="openEnvelope()">
+
+        <div
+            class="envelope-body">
+        </div>
+
+        <div
+            class="envelope-flap">
+        </div>
+
+        <div
+            class="envelope-heart">
+            ♥
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         TRANG TÂM THƯ
+    ================================================= -->
+
+    <div
+        class="letter-paper"
+        id="letterPaper">
+
+        <div
+            class="paper-content">
+
+
+            <h1>
+                Gửi chị iu 💙
+            </h1>
+
+
+            <p>
+
+                <span
+                    id="text1">
+                </span>
+
+                <span
+                    class="typing-cursor"
+                    id="cursor1">
+                </span>
+
+            </p>
+
+
+            <p>
+                <span id="text2"></span>
+            </p>
+
+
+            <p>
+                <span id="text3"></span>
+            </p>
+
+
+            <p
+                id="signature"
+                style="
+                    text-align:center;
+                    color:#1976d2;
+                    font-weight:bold;
+                ">
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NÚT MỞ QUÀ
+    ================================================= -->
+
+    <button
+        class="gift-button"
+        id="giftButton"
+        onclick="openGift()">
+
+        🎁 MỞ QUÀ BÍ ẨN 🎁
+
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+     MÀN HÌNH SINH NHẬT
+===================================================== -->
+
+<section
+    class="birthday-screen"
+    id="birthdayScreen">
+
+
+    <!-- =================================================
+         DÂY ẢNH KỶ NIỆM
+    ================================================= -->
+
+    <div
+        class="photo-line">
+
+        <div class="rope"></div>
+
+
+        <!-- ẢNH 1 -->
+
+        <div
+            class="memory-photo photo1">
+
+            <img
+                src="anh1.jpg"
+                alt="Kỷ niệm 1">
+
+        </div>
+
+
+        <!-- ẢNH 2 -->
+
+        <div
+            class="memory-photo photo2">
+
+            <img
+                src="anh2.jpg"
+                alt="Kỷ niệm 2">
+
+        </div>
+
+
+        <!-- ẢNH 3 -->
+
+        <div
+            class="memory-photo photo3">
+
+            <img
+                src="anh3.jpg"
+                alt="Kỷ niệm 3">
+
+        </div>
+
+
+        <!-- ẢNH 4 -->
+
+        <div
+            class="memory-photo photo4">
+
+            <img
+                src="anh4.jpg"
+                alt="Kỷ niệm 4">
+
+        </div>
+
+
+        <!-- ẢNH 5 -->
+
+        <div
+            class="memory-photo photo5">
+
+            <img
+                src="anh5.jpg"
+                alt="Kỷ niệm 5">
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         CANVAS PHÁO HOA
+    ================================================= -->
+
+    <canvas id="fireworks"></canvas>
+
+
+
+    <!-- =================================================
+         CHỮ HAPPY BIRTHDAY
+    ================================================= -->
+
+    <div
+        class="happy-text">
+
+        HAPPY BIRTHDAY
+
+    </div>
+
+
+
+    <!-- =================================================
+         BÁNH KEM
+    ================================================= -->
+
+    <div
+        class="cake"
+        id="cake">
+
+
+        <!-- NẾN -->
+
+        <div class="candles">
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
+        </div>
+
+
+        <!-- TẦNG TRÊN -->
+
+        <div
+            class="cake-tier tier-top">
+
+            <div class="icing"></div>
+
+        </div>
+
+
+        <!-- TẦNG GIỮA -->
+
+        <div
+            class="cake-tier tier-middle">
+
+            <div class="icing"></div>
+
+        </div>
+
+
+        <!-- TẦNG DƯỚI -->
+
+        <div
+            class="cake-tier tier-bottom">
+
+            <div class="icing"></div>
+
+        </div>
+
+
+        <!-- HOA HỒNG XANH -->
+
+        <div
+            class="blue-rose rose1">
+        </div>
+
+        <div
+            class="blue-rose rose2">
+        </div>
+
+        <div
+            class="blue-rose rose3">
+        </div>
+
+
+        <!-- CHỮ TRÊN BÁNH -->
+
+        <div class="cake-message">
+
+            Chúc mừng sinh nhật<br>
+            chị iu 💙
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         DÒNG CHÚC
+    ================================================= -->
+
+    <div class="small-wish">
+
+        💙 Chúc chị iu một sinh nhật thật hạnh phúc 💙
+
+    </div>
+
+
+</section>
+
+
+
+<script>
+
+/* =====================================================
+   MẬT KHẨU
+===================================================== */
+
+
+/*
+    MẬT KHẨU:
+
+    2008
+
+    Muốn đổi thì sửa dòng dưới.
+*/
+
+const PASSWORD = "2008";
+
+let inputPassword = "";
+
+
+/* =====================================================
+   NHẬP SỐ
+===================================================== */
+
+function press(number) {
+
+    if (
+        inputPassword.length >= 4
+    ) {
+
+        return;
+    }
+
+
+    inputPassword += number;
+
+    updateDots();
+
+
+    if (
+        inputPassword.length ===
+        PASSWORD.length
+    ) {
+
+        setTimeout(() => {
+
+            if (
+                inputPassword ===
+                PASSWORD
+            ) {
+
+                unlock();
+
+            } else {
+
+                wrongPassword();
+
+            }
+
+        }, 300);
+    }
+}
+
+
+/* =====================================================
+   DẤU CHẤM
+===================================================== */
+
+function updateDots() {
+
+    for (
+        let i = 1;
+        i <= 4;
+        i++
+    ) {
+
+        const dot =
+            document.getElementById(
+                "dot" + i
+            );
+
+
+        if (
+            i <= inputPassword.length
+        ) {
+
+            dot.classList.add(
+                "active"
+            );
+
+        } else {
+
+            dot.classList.remove(
+                "active"
+            );
+        }
+    }
+}
+
+
+/* =====================================================
+   XÓA
+===================================================== */
+
+function removeNumber() {
+
+    inputPassword =
+        inputPassword.slice(
+            0,
+            -1
+        );
+
+    updateDots();
+}
+
+
+/* =====================================================
+   SAI MẬT KHẨU
+===================================================== */
+
+function wrongPassword() {
+
+    const dots =
+        document.querySelector(
+            ".dots"
+        );
+
+
+    dots.animate(
+
+        [
+            {
+                transform:
+                    "translateX(0)"
+            },
+
+            {
+                transform:
+                    "translateX(-10px)"
+            },
+
+            {
+                transform:
+                    "translateX(10px)"
+            },
+
+            {
+                transform:
+                    "translateX(-10px)"
+            },
+
+            {
+                transform:
+                    "translateX(0)"
+            }
+        ],
+
+        {
+            duration: 400
+        }
+    );
+
+
+    inputPassword = "";
+
+
+    setTimeout(
+        updateDots,
+        400
+    );
+}
+
+
+/* =====================================================
+   MỞ KHÓA
+===================================================== */
+
+function unlock() {
+
+    document
+        .getElementById(
+            "passwordPage"
+        )
+        .style.display =
+            "none";
+
+
+    document
+        .getElementById(
+            "letterPage"
+        )
+        .classList.add(
+            "show"
+        );
+
+
+    startFloatingHearts();
+}
+
+
+/* =====================================================
+   MỞ PHONG THƯ
+===================================================== */
+
+let envelopeOpened = false;
+
+
+function openEnvelope() {
+
+    if (
+        envelopeOpened
+    ) {
+
+        return;
+    }
+
+
+    envelopeOpened = true;
+
+
+    const envelope =
+        document.getElementById(
+            "envelope"
+        );
+
+
+    const paper =
+        document.getElementById(
+            "letterPaper"
+        );
+
+
+    const giftButton =
+        document.getElementById(
+            "giftButton"
+        );
+
+
+    /* MỞ NẮP */
+
+    envelope.classList.add(
+        "open"
+    );
+
+
+    /* Chờ nắp mở */
+
+    setTimeout(() => {
+
+
+        envelope.style.opacity =
+            "0";
+
+
+        envelope.style.transform =
+            "translateY(80px) scale(.75)";
+
+
+        setTimeout(() => {
+
+
+            envelope.style.display =
+                "none";
+
+
+            /* HIỆN GIẤY */
+
+            paper.classList.add(
+                "show"
+            );
+
+
+            /* BẮT ĐẦU VIẾT */
+
+            setTimeout(() => {
+
+                startTyping();
+
+            }, 900);
+
+
+            /*
+                Hiện nút quà
+                sau khi thư xuất hiện
+            */
+
+            setTimeout(() => {
+
+                giftButton.classList.add(
+                    "show"
+                );
+
+            }, 1800);
+
+
+        }, 500);
+
+
+    }, 900);
+}
+
+
+/* =====================================================
+   NỘI DUNG TÂM THƯ
+===================================================== */
+
+const letterTexts = [
+
+    "Có một điều mà anh đã muốn nói với chị từ rất lâu...",
+
+    "Cảm ơn chị vì đã luôn xuất hiện trong cuộc sống của em. Những khoảnh khắc được nói chuyện, được chia sẻ và được nhìn thấy chị vui vẻ đều là những kỷ niệm mà em rất trân trọng.",
+
+    "Em không biết tương lai sẽ như thế nào, nhưng em mong chị sẽ luôn vui vẻ, hạnh phúc và gặp thật nhiều điều tốt đẹp. Chúc chị tuổi mới thật nhiều niềm vui và luôn được yêu thương.",
+
+    "💙 Chúc mừng sinh nhật chị iu 💙"
+
+];
+
+
+/* =====================================================
+   GÕ TỪNG CHỮ
+===================================================== */
+
+function typeText(
+    element,
+    text,
+    speed
+) {
+
+    return new Promise(
+        resolve => {
+
+            let index = 0;
+
+
+            const timer =
+                setInterval(() => {
+
+
+                    element.textContent +=
+                        text[index];
+
+
+                    index++;
+
+
+                    if (
+                        index >=
+                        text.length
+                    ) {
+
+                        clearInterval(
+                            timer
+                        );
+
+                        resolve();
+                    }
+
+
+                }, speed);
+
+        }
+    );
+}
+
+
+/* =====================================================
+   BẮT ĐẦU VIẾT THƯ
+===================================================== */
+
+async function startTyping() {
+
+    const text1 =
+        document.getElementById(
+            "text1"
+        );
+
+
+    const text2 =
+        document.getElementById(
+            "text2"
+        );
+
+
+    const text3 =
+        document.getElementById(
+            "text3"
+        );
+
+
+    const signature =
+        document.getElementById(
+            "signature"
+        );
+
+
+    const cursor =
+        document.getElementById(
+            "cursor1"
+        );
+
+
+    /* ĐOẠN 1 */
+
+    await typeText(
+        text1,
+        letterTexts[0],
+        55
+    );
+
+
+    cursor.style.display =
+        "none";
+
+
+    /* ĐOẠN 2 */
+
+    await typeText(
+        text2,
+        letterTexts[1],
+        38
+    );
+
+
+    /* ĐOẠN 3 */
+
+    await typeText(
+        text3,
+        letterTexts[2],
+        38
+    );
+
+
+    /* CHỮ KÝ */
+
+    await typeText(
+        signature,
+        letterTexts[3],
+        55
+    );
+}
+
+
+/* =====================================================
+   TRÁI TIM BAY Ở TRANG THƯ
+===================================================== */
+
+function createHeart() {
+
+    const heart =
+        document.createElement(
+            "div"
+        );
+
+
+    heart.className =
+        "floating-heart";
+
+
+    const heartList = [
+
+        "💙",
+        "💙",
+        "💙",
+        "✨",
+        "💕"
+
+    ];
+
+
+    heart.textContent =
+        heartList[
+            Math.floor(
+                Math.random() *
+                heartList.length
+            )
+        ];
+
+
+    heart.style.left =
+        Math.random() *
+        100 +
+        "vw";
+
+
+    heart.style.setProperty(
+        "--move",
+        (
+            Math.random() *
+            200 -
+            100
+        ) + "px"
+    );
+
+
+    heart.style.animationDuration =
+        (
+            5 +
+            Math.random() * 4
+        ) + "s";
+
+
+    document.body.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 10000);
+}
+
+
+function startFloatingHearts() {
+
+    setInterval(() => {
+
+        createHeart();
+
+    }, 900);
+}
+
+
+/* =====================================================
+   MỞ QUÀ
+===================================================== */
+
+let giftOpened = false;
+
+
+function openGift() {
+
+    if (giftOpened) {
+
+        return;
+    }
+
+
+    giftOpened = true;
+
+
+    const birthdayScreen =
+        document.getElementById(
+            "birthdayScreen"
+        );
+
+
+    birthdayScreen.classList.add(
+        "active"
+    );
+
+
+    /* Bắt đầu pháo hoa */
+
+    startFireworks();
+
+
+    /* Bướm */
+
+    startButterflies();
+
+
+    /* Bánh kem rơi xuống */
+
+    setTimeout(() => {
+
+        birthdayScreen.classList.add(
+            "cake-show"
+        );
+
+    }, 1800);
+
+
+    /* Pháo hoa tim */
+
+    setTimeout(() => {
+
+        createHeartFireworks();
+
+    }, 700);
+
+}
+
+
+/* =====================================================
+   CANVAS PHÁO HOA
+===================================================== */
+
+const canvas =
+    document.getElementById(
+        "fireworks"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let fireworks = [];
+
+let particles = [];
+
+let fireworkRunning = false;
+
+
+function resizeCanvas() {
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+}
+
+
+resizeCanvas();
+
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+/* =====================================================
+   TẠO PHÁO HOA
+===================================================== */
+
+function createFirework(
+    x,
+    y
+) {
+
+    const colors = [
+
+        "#ff1744",
+        "#ffea00",
+        "#00e5ff",
+        "#76ff03",
+        "#d500f9",
+        "#ff9100",
+        "#ffffff",
+        "#00ff88"
+
+    ];
+
+
+    const color =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
+        ];
+
+
+    const count = 90;
+
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        const angle =
+            Math.random() *
+            Math.PI * 2;
+
+
+        const speed =
+            2 +
+            Math.random() * 5;
+
+
+        particles.push({
+
+            x: x,
+
+            y: y,
+
+            vx:
+                Math.cos(angle)
+                * speed,
+
+            vy:
+                Math.sin(angle)
+                * speed,
+
+            life:
+                80 +
+                Math.random() * 40,
+
+            color:
+                color,
+
+            size:
+                1.5 +
+                Math.random() * 2
+
+        });
+    }
+}
+
+
+/* =====================================================
+   VẼ PHÁO HOA
+===================================================== */
+
+function animateFireworks() {
+
+    if (!fireworkRunning) {
+
+        return;
+    }
+
+
+    ctx.fillStyle =
+        "rgba(2,8,23,.20)";
+
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    /* Tạo pháo hoa ngẫu nhiên */
+
+    if (
+        Math.random() <
+        0.045
+    ) {
+
+        createFirework(
+
+            80 +
+            Math.random() *
+            (canvas.width - 160),
+
+            80 +
+            Math.random() *
+            (canvas.height * .55)
+
+        );
+    }
+
+
+    /* Hạt pháo hoa */
+
+    for (
+        let i = particles.length - 1;
+        i >= 0;
+        i--
+    ) {
+
+        const p =
+            particles[i];
+
+
+        p.x += p.vx;
+
+        p.y += p.vy;
+
+        p.vy += .035;
+
+        p.vx *= .99;
+
+        p.vy *= .99;
+
+        p.life--;
+
+
+        ctx.globalAlpha =
+            Math.max(
+                p.life / 120,
+                0
+            );
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            p.color;
+
+        ctx.fill();
+
+
+        if (
+            p.life <= 0
+        ) {
+
+            particles.splice(
+                i,
+                1
+            );
+        }
+    }
+
+
+    ctx.globalAlpha = 1;
+
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+}
+
+
+/* =====================================================
+   BẮT ĐẦU PHÁO HOA
+===================================================== */
+
+function startFireworks() {
+
+    fireworkRunning = true;
+
+    animateFireworks();
+
+
+    /* Pháo hoa mở màn */
+
+    setTimeout(() => {
+
+        createFirework(
+            canvas.width * .25,
+            canvas.height * .38
+        );
+
+    }, 300);
+
+
+    setTimeout(() => {
+
+        createFirework(
+            canvas.width * .75,
+            canvas.height * .38
+        );
+
+    }, 600);
+
+
+    setTimeout(() => {
+
+        createFirework(
+            canvas.width * .5,
+            canvas.height * .25
+        );
+
+    }, 900);
+}
+
+
+/* =====================================================
+   PHÁO HOA HÌNH TRÁI TIM
+===================================================== */
+
+function createHeartFirework() {
+
+    const cx =
+        100 +
+        Math.random() *
+        (canvas.width - 200);
+
+
+    const cy =
+        100 +
+        Math.random() *
+        (canvas.height * .45);
+
+
+    const colors = [
+
+        "#ff1744",
+        "#ff4081",
+        "#e040fb",
+        "#ffea00",
+        "#00e5ff",
+        "#76ff03"
+
+    ];
+
+
+    const color =
+        colors[
+            Math.floor(
+                Math.random() *
+                colors.length
+            )
+        ];
+
+
+    for (
+        let i = 0;
+        i < 120;
+        i++
+    ) {
+
+        const t =
+            Math.PI * 2 *
+            i / 120;
+
+
+        /*
+           Phương trình trái tim
+        */
+
+        const hx =
+            16 *
+            Math.pow(
+                Math.sin(t),
+                3
+            );
+
+
+        const hy =
+            -(
+                13 *
+                Math.cos(t)
+                - 5 *
+                Math.cos(2*t)
+                - 2 *
+                Math.cos(3*t)
+                - Math.cos(4*t)
+            );
+
+
+        const scale =
+            0.22 +
+            Math.random() * .12;
+
+
+        particles.push({
+
+            x: cx,
+
+            y: cy,
+
+            vx:
+                hx * scale,
+
+            vy:
+                hy * scale,
+
+            life:
+                100 +
+                Math.random() * 40,
+
+            color:
+                color,
+
+            size:
+                2 +
+                Math.random() * 2
+
+        });
+    }
+}
+
+
+function createHeartFireworks() {
+
+    createHeartFirework();
+
+
+    setTimeout(
+        createHeartFirework,
+        700
+    );
+
+
+    setTimeout(
+        createHeartFirework,
+        1400
+    );
+
+
+    setTimeout(
+        createHeartFirework,
+        2200
+    );
+
+
+    setTimeout(
+        createHeartFirework,
+        3000
+    );
+
+
+    setTimeout(
+        createHeartFirework,
+        4000
+    );
+
+
+    /* Lặp lại */
+
+    setInterval(() => {
+
+        if (giftOpened) {
+
+            createHeartFirework();
+        }
+
+    }, 3500);
+}
+
+
+/* =====================================================
+   BƯỚM BAY
+===================================================== */
+
+function createButterfly() {
+
+    const butterfly =
+        document.createElement(
+            "div"
+        );
+
+
+    butterfly.className =
+        "butterfly";
+
+
+    const butterflyList = [
+
+        "🦋",
+        "🦋",
+        "🦋",
+        "🦋",
+        "🦋"
+
+    ];
+
+
+    butterfly.textContent =
+        butterflyList[
+            Math.floor(
+                Math.random() *
+                butterflyList.length
+            )
+        ];
+
+
+    butterfly.style.left =
+        (
+            Math.random() *
+            100
+        ) + "vw";
+
+
+    butterfly.style.animationDuration =
+        (
+            7 +
+            Math.random() * 6
+        ) + "s";
+
+
+    document.body.appendChild(
+        butterfly
+    );
+
+
+    setTimeout(() => {
+
+        butterfly.remove();
+
+    }, 14000);
+}
+
+
+function startButterflies() {
+
+    /* Bướm xuất hiện liên tục */
+
+    setInterval(() => {
+
+        if (giftOpened) {
+
+            createButterfly();
+        }
+
+    }, 1000);
+
+
+    /* Tạo một số bướm ban đầu */
+
+    for (
+        let i = 0;
+        i < 8;
+        i++
+    ) {
+
+        setTimeout(() => {
+
+            createButterfly();
+
+        }, i * 300);
+    }
+}
+
+
+/* =====================================================
+   BÀN PHÍM
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        /* Nhập mật khẩu */
+
+        if (
+            event.key >= "0" &&
+            event.key <= "9"
+        ) {
+
+            press(
+                Number(event.key)
+            );
+        }
+
+
+        /* Xóa */
+
+        if (
+            event.key ===
+            "Backspace"
+        ) {
+
+            removeNumber();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
