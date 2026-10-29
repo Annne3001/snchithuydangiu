@@ -679,7 +679,7 @@ html, body {
 /* =====================================================
    TẠO ICON BAY VÀ ẢNH RƠI
 ===================================================== */
-const photoGallery = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", "anh6.jpg", "anh7.jpg", "anh8.jpg"];
+const photoGallery = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", "anh6.jpg", "anh7.jpg", "anh8.jpg", "anh9.jpg", "anh10.jpg", "anh11.jpg"];
 
 let heartInterval = null;
 let photoInterval = null;
@@ -742,7 +742,7 @@ function startPhotoFallingEffects() {
     if (photoInterval) return;
 
     setTimeout(createFallingPhoto, 200);
-    photoInterval = setInterval(createFallingPhoto, 2000);
+    photoInterval = setInterval(createFallingPhoto, 1800);
 }
 
 /* =====================================================
