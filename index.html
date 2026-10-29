@@ -29,15 +29,15 @@ html, body {
 }
 
 /* =====================================================
-   LỚP ICON BAY & ẢNH RƠI (Z-INDEX: 25)
+   LỚP ICON BAY & ẢNH RƠI (NẰM PHÍA SAU THƯ)
 ===================================================== */
 #bgFloatingLayer {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 25;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Nằm dưới bức thư (z-index: 50) */
     pointer-events: none;
     overflow: hidden;
 }
@@ -70,8 +70,8 @@ html, body {
 .falling-photo {
     position: absolute;
     top: -160px;
-    width: 130px;
-    padding: 8px 8px 28px 8px;
+    width: 120px;
+    padding: 6px 6px 24px 6px;
     background: #ffffff;
     border-radius: 6px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
@@ -82,7 +82,7 @@ html, body {
 .falling-photo img {
     width: 100%;
     height: auto;
-    max-height: 130px;
+    max-height: 120px;
     object-fit: contain;
     border-radius: 3px;
     display: block;
@@ -342,7 +342,7 @@ html, body {
 ===================================================== */
 .letter-paper {
     position: absolute;
-    z-index: 50;
+    z-index: 50; /* Cao hơn lớp ảnh rơi (z-index: 1) để ảnh rơi ở phía sau */
     width: 480px;
     min-height: 560px;
     padding: 45px 40px;
@@ -596,9 +596,6 @@ html, body {
 <!-- THẺ NHẠC NỀN -->
 <audio id="bgMusic" src="nhac.mp3" loop></audio>
 
-<!-- LỚP NỀN ICON & ẢNH RƠI -->
-<div id="bgFloatingLayer"></div>
-
 <!-- 1. MÀN HÌNH NHẬP MẬT KHẨU -->
 <section class="password-page" id="passwordPage">
     <div class="card">
@@ -635,6 +632,9 @@ html, body {
 
 <!-- 2. TRANG PHONG THƯ & VĂN BẢN -->
 <section class="letter-page" id="letterPage">
+    <!-- LỚP NỀN ICON & ẢNH RƠI (ĐÃ ĐƯA VÀO ĐÂY ĐỂ NẰM DƯỚI BỨC THƯ) -->
+    <div id="bgFloatingLayer"></div>
+
     <div class="envelope" id="envelope" onclick="openEnvelope()">
         <div class="envelope-flap-top"></div>
         <div class="envelope-flap-bottom"></div>
