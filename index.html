@@ -70,7 +70,7 @@ html, body {
 .falling-photo {
     position: absolute;
     top: -160px;
-    width: 180px;
+    width: 120px;
     padding: 6px 6px 24px 6px;
     background: #ffffff;
     border-radius: 6px;
@@ -82,7 +82,7 @@ html, body {
 .falling-photo img {
     width: 100%;
     height: auto;
-    max-height: 180px;
+    max-height: 120px;
     object-fit: contain;
     border-radius: 3px;
     display: block;
@@ -679,7 +679,7 @@ html, body {
 /* =====================================================
    TẠO ICON BAY VÀ ẢNH RƠI
 ===================================================== */
-const photoGallery = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", "anh6.jpg", "anh7.jpg", "anh8.jpg", "anh9.jpg", "anh10.jpg", "anh11.jpg"];
+const photoGallery = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", "anh6.jpg", "anh7.jpg", "anh8.jpg"];
 
 let heartInterval = null;
 let photoInterval = null;
@@ -742,7 +742,7 @@ function startPhotoFallingEffects() {
     if (photoInterval) return;
 
     setTimeout(createFallingPhoto, 200);
-    photoInterval = setInterval(createFallingPhoto, 1200);
+    photoInterval = setInterval(createFallingPhoto, 2000);
 }
 
 /* =====================================================
@@ -835,14 +835,11 @@ function openEnvelope() {
 const pagesData = [
     {
         title: "Gửi chị iu 💙",
-        text: "Chúc mừng sinh nhật chị iu của em! 🎂💕
-\n Hôm nay là một ngày thật đặc biệt, ngày mà một cô gái tuyệt vời đã xuất hiện trên thế giới này. Em chúc chị tuổi mới luôn xinh tươi, rạng rỡ, lúc nào cũng vui vẻ và nở thật nhiều nụ cười. Mong rằng mọi điều tốt đẹp nhất sẽ luôn tìm đến với chị."
+        text: "Có một điều mà em đã muốn nói với chị từ rất lâu rồi... Mỗi ngày trôi qua, được đồng hành và chia sẻ những vui buồn cùng chị là điều tuyệt vời nhất đối với em."
     },
     {
         title: "Lời từ trái tim nhỏ bé ✨",
-        text:  "Em mong tuổi mới sẽ mang đến cho chị thật nhiều niềm vui, những chuyến đi thú vị, những trải nghiệm đáng nhớ và cả những điều bất ngờ thật ngọt ngào.
-\n Mong chị luôn mạnh mẽ trước những khó khăn, luôn tự tin với những lựa chọn của mình và đạt được tất cả những điều mà chị đang ấp ủ. Nếu có những ngày không vui, mong chị nhớ rằng ngày mai luôn có những điều tốt đẹp đang chờ đón.
-           \n Cảm ơn chị vì đã luôn xuất hiện trong cuộc sống của em. Những khoảnh khắc được nói chuyện, được chia sẻ và được nhìn thấy chị vui vẻ đều là những kỷ niệm mà em rất trân trọng.\n Em không biết tương lai sẽ như thế nào, nhưng em mong chị sẽ luôn vui vẻ, hạnh phúc và gặp thật nhiều điều tốt đẹp. Chúc chị tuổi mới thật nhiều niềm vui và luôn được yêu thương."
+        text:  "Cảm ơn chị vì đã luôn xuất hiện trong cuộc sống của em. Những khoảnh khắc được nói chuyện, được chia sẻ và được nhìn thấy chị vui vẻ đều là những kỷ niệm mà em rất trân trọng.\n Em không biết tương lai sẽ như thế nào, nhưng em mong chị sẽ luôn vui vẻ, hạnh phúc và gặp thật nhiều điều tốt đẹp. Chúc chị tuổi mới thật nhiều niềm vui và luôn được yêu thương."
     },
     {
         title: "Mãi bên nhau nhé 💙",
