@@ -70,7 +70,7 @@ html, body {
 .falling-photo {
     position: absolute;
     top: -160px;
-    width: 180px;
+    width: 150px;
     padding: 6px 6px 24px 6px;
     background: #ffffff;
     border-radius: 6px;
@@ -82,7 +82,7 @@ html, body {
 .falling-photo img {
     width: 100%;
     height: auto;
-    max-height: 180px;
+    max-height: 150px;
     object-fit: contain;
     border-radius: 3px;
     display: block;
@@ -632,7 +632,7 @@ html, body {
 
 <!-- 2. TRANG PHONG THƯ & VĂN BẢN -->
 <section class="letter-page" id="letterPage">
-    <!-- LỚP NỀN ICON & ẢNH RƠI (ĐÃ ĐƯA VÀO ĐÂY ĐỂ NẰM DƯỚI BỨC THƯ) -->
+    <!-- LỚP NỀN ICON & ẢNH RƠI (NẰM DƯỚI BỨC THƯ) -->
     <div id="bgFloatingLayer"></div>
 
     <div class="envelope" id="envelope" onclick="openEnvelope()">
@@ -677,9 +677,32 @@ html, body {
 
 <script>
 /* =====================================================
-   TẠO ICON BAY VÀ ẢNH RƠI
+   TẠO ICON BAY VÀ ẢNH RƠI (ĐÃ FIX ĐẢM BẢO XUẤT HIỆN TẤT CẢ ẢNH)
 ===================================================== */
-const photoGallery = ["anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", "anh6.jpg", "anh7.jpg", "anh8.jpg", "anh9.jpg", "anh10.jpg", "anh11.jpg", "anh12.jpg", "anh13.jpg", "anh14.jpg", "anh15.jpg", "anh16.jpg", "anh17.jpg", "anh18.jpg", "anh19.jpg", "anh20.jpg"];
+const photoGallery = [
+    "anh1.jpg", "anh2.jpg", "anh3.jpg", "anh4.jpg", "anh5.jpg", 
+    "anh6.jpg", "anh7.jpg", "anh8.jpg", "anh9.jpg", "anh10.jpg", 
+    "anh11.jpg", "anh12.jpg", "anh13.jpg", "anh14.jpg", "anh15.jpg", 
+    "anh16.jpg", "anh17.jpg", "anh18.jpg", "anh19.jpg", "anh20.jpg"
+];
+
+// Thuật toán quản lý hàng đợi xuất hiện ảnh
+let photoIndexQueue = [];
+
+function getNextPhotoSrc() {
+    if (photoIndexQueue.length === 0) {
+        // Khởi tạo danh sách chỉ số từ 0 đến N-1
+        photoIndexQueue = photoGallery.map((_, index) => index);
+        // Trộn ngẫu nhiên thứ tự xuất hiện (Fisher-Yates Shuffle)
+        for (let i = photoIndexQueue.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [photoIndexQueue[i], photoIndexQueue[j]] = [photoIndexQueue[j], photoIndexQueue[i]];
+        }
+    }
+    // Lấy ảnh tiếp theo từ hàng đợi
+    const nextIndex = photoIndexQueue.pop();
+    return photoGallery[nextIndex];
+}
 
 let heartInterval = null;
 let photoInterval = null;
@@ -691,7 +714,7 @@ function createFloatingHeart() {
     const heart = document.createElement("div");
     heart.className = "floating-heart";
 
-    const heartList = ["💙", "✨", " 💜", "❄️", "🤍", "💎", "⭐"];
+    const heartList = ["💙", "✨", "💜", "❄️", "🤍", "💎", "⭐"];
     heart.textContent = heartList[Math.floor(Math.random() * heartList.length)];
     heart.style.left = Math.random() * 92 + "vw";
     heart.style.setProperty("--move", (Math.random() * 240 - 120) + "px");
@@ -718,7 +741,7 @@ function createFallingPhoto() {
     photo.style.setProperty("--rot", rot);
 
     const img = document.createElement("img");
-    img.src = photoGallery[Math.floor(Math.random() * photoGallery.length)];
+    img.src = getNextPhotoSrc(); // Lấy ảnh theo hàng đợi tuần tự ngẫu nhiên
     img.onerror = function() {
         this.src = 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'90\' fill=\'%23d8ecff\'><text x=\'50%\' y=\'50%\' font-size=\'26\' text-anchor=\'middle\'>📸</text></svg>';
     };
@@ -746,7 +769,7 @@ function startPhotoFallingEffects() {
 }
 
 /* =====================================================
-   CÀI ĐẶT MẬT KHẨU (MẶC ĐỊNH: 2008)
+   CÀI ĐẶT MẬT KHẨU (MẶC ĐỊNH: 0411)
 ===================================================== */
 const PASSWORD = "0411";
 let inputPassword = "";
